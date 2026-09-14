@@ -1,0 +1,368 @@
+:root {
+    --primary: #0B3DFF;
+    --primary-dark: #0632D8;
+    --primary-light: #3B82F6;
+    --primary-soft: #E8F1FF;
+
+    --yellow: #FFD600;
+    --yellow-light: #FDE68A;
+    --yellow-soft: #FEF9E7;
+    --orange: #F59E0B;
+
+    --navy: #1E293B;
+    --text: #334155;
+    --text-light: #64748B;
+    --muted: #94A3B8;
+
+    --background: #FFFFFF;
+    --surface: #F8FAFC;
+    --surface-blue: #F1F5F9;
+    --border: #E2E8F0;
+
+    --success: #16A34A;
+    --danger: #DC2626;
+
+    --container: 1240px;
+    --header-height: 84px;
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --radius-xl: 40px;
+
+    --shadow-sm: 0 4px 18px rgba(30, 41, 59, 0.06);
+    --shadow-md: 0 12px 35px rgba(30, 41, 59, 0.08);
+    --shadow-lg: 0 20px 55px rgba(30, 41, 59, 0.12);
+
+    --transition-fast: 0.2s ease;
+    --transition: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 320px;
+    background: var(--background);
+    color: var(--text);
+    font-family: "Estedad", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-size: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+::selection {
+    background: var(--primary);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+
+.site-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: min(calc(100% - 40px), var(--container));
+    margin-inline: auto;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 34px;
+    padding: 5px 16px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.primary-button,
+.secondary-button,
+.header-cta,
+.cta-button,
+.section-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.primary-button {
+    min-height: 52px;
+    padding: 10px 28px;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(11, 61, 255, 0.2);
+}
+
+.primary-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(11, 61, 255, 0.26);
+}
+
+.secondary-button {
+    min-height: 52px;
+    padding: 10px 28px;
+    border: 1.5px solid var(--primary);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.secondary-button:hover {
+    background: var(--primary-soft);
+    transform: translateY(-2px);
+}
+
+.section-heading {
+    margin-bottom: 42px;
+}
+
+.section-heading h2 {
+    margin-top: 12px;
+    color: var(--navy);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    line-height: 1.35;
+}
+
+.section-heading h2 span {
+    color: var(--primary);
+}
+
+.section-heading p {
+    max-width: 620px;
+    margin-top: 12px;
+    color: var(--text-light);
+    font-size: 15px;
+    line-height: 2;
+}
+
+.section-heading-inline {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.section-link {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.section-link:hover {
+    transform: translateX(-4px);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--primary-soft);
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 5px;
+    background: var(--primary);
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+    :root {
+        --container: 960px;
+    }
+
+    .container {
+        width: min(calc(100% - 32px), var(--container));
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --header-height: 70px;
+    }
+
+    html {
+        scroll-padding-top: 85px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .eyebrow {
+        min-height: 30px;
+        padding: 4px 13px;
+        font-size: 11px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        min-height: 48px;
+        padding-inline: 22px;
+        font-size: 13px;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+        margin-top: 9px;
+        font-size: 28px;
+    }
+
+    .section-heading p {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .section-heading-inline {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
