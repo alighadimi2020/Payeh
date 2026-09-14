@@ -1,0 +1,256 @@
+@media (max-width: 1100px) {
+    .hero-content {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    }
+
+    .consultation-content {
+        gap: 45px;
+        padding: 45px;
+    }
+
+    .footer-main {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .header-inner {
+        gap: 20px;
+    }
+
+    .hero-content {
+        gap: 25px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(42px, 6vw, 62px);
+    }
+
+    .features-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .consultation-content {
+        gap: 30px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 820px) {
+    .hero-content,
+    .consultation-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        order: 1;
+    }
+
+    .hero-text {
+        order: 2;
+    }
+
+    .consultation-visual {
+        order: 1;
+    }
+
+    .consultation-text {
+        order: 2;
+    }
+
+    .features-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .magazine-track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .article-card {
+        flex: 0 0 82%;
+    }
+
+    .guarantee-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .guarantee-item {
+        flex: 0 0 250px;
+        scroll-snap-align: start;
+    }
+
+    .final-cta-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .hero-section,
+    .why-section,
+    .consultation-section,
+    .magazine-section,
+    .services-section,
+    .guarantee-section,
+    .final-cta {
+        overflow: hidden;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-text > p {
+        margin-inline: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .quick-services-track {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .quick-service {
+        flex: 0 0 auto;
+    }
+
+    .consultation-text {
+        text-align: center;
+    }
+
+    .consultation-text > p {
+        margin-inline: auto;
+    }
+
+    .consultation-text ul {
+        text-align: right;
+    }
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content {
+        gap: 5px;
+    }
+
+    .hero-visual {
+        min-height: 270px;
+    }
+
+    .hero-illustration {
+        width: min(100%, 360px);
+    }
+
+    .consultation-content {
+        padding: 25px 20px 30px;
+    }
+
+    .consultation-visual {
+        min-height: 220px;
+    }
+
+    .article-card {
+        flex-basis: 84%;
+    }
+
+    .guarantee-item {
+        flex-basis: 240px;
+    }
+
+    .final-cta-content {
+        padding: 30px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .hero-text h1 {
+        font-size: clamp(40px, 13vw, 56px);
+        letter-spacing: -1px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .primary-button,
+    .hero-actions .secondary-button {
+        width: 100%;
+    }
+
+    .consultation-text h2 {
+        font-size: 28px;
+    }
+
+    .article-card {
+        flex-basis: 88%;
+        min-width: 250px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-socials {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-text h1 {
+        font-size: 39px;
+    }
+
+    .quick-service {
+        min-width: 150px;
+    }
+
+    .article-card {
+        flex-basis: 92%;
+    }
+
+    .guarantee-item {
+        flex-basis: 225px;
+    }
+
+    .login-card {
+        padding-inline: 16px;
+    }
+}
