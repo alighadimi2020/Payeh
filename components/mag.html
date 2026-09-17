@@ -239,13 +239,14 @@
 
     .magazine-cards-wrapper {
         width: 100%;
+        max-width: 100%;
         order: 2;
-        overflow: hidden;
+        overflow: visible;
         direction: rtl;
     }
 
     .magazine-cards {
-        width: max-content;
+        width: 100%;
         max-width: none;
         display: flex;
         flex-direction: row;
@@ -258,6 +259,7 @@
         -webkit-overflow-scrolling: touch;
         overscroll-behavior-x: contain;
         scroll-snap-type: x proximity;
+        touch-action: pan-x;
     }
 
     .magazine-cards::-webkit-scrollbar {
