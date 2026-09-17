@@ -1,0 +1,21 @@
+*{box-sizing:border-box}
+
+html,body{margin:0;padding:0}
+
+body{
+  min-height:180px;
+  background:#fff;
+  font-family:Tahoma,Arial,sans-serif;
+  color:#123d78;
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#fff;
+color:#172033;
+font-family:Tahoma,Arial,sans-serif;
+}
