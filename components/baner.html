@@ -1,0 +1,431 @@
+<style>
+.final-cta-section {
+    width: 100%;
+    padding: 0 0 38px;
+    overflow: hidden;
+}
+
+.final-cta {
+    position: relative;
+    width: 100%;
+    height: 137px;
+    overflow: hidden;
+    border-radius: 17px;
+    background: #0757b8;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+.final-cta::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    left: -120px;
+    bottom: -285px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .055);
+}
+
+.final-cta::after {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    right: 38%;
+    top: -185px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .035);
+}
+
+.final-cta-content {
+    position: relative;
+    z-index: 3;
+    width: 58%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 38px 0 30px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.final-cta-title {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: clamp(22px, 3vw, 29px);
+    font-weight: 900;
+    line-height: 1.55;
+    letter-spacing: -.3px;
+}
+
+.final-cta-title span {
+    color: #ffd21c;
+}
+
+.final-cta-text {
+    margin: 0 0 12px;
+    color: rgba(255, 255, 255, .84);
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.final-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 100px;
+    height: 31px;
+    padding: 0 14px;
+    border-radius: 9px;
+    background: #ffd21c;
+    color: #17477e;
+    font-size: 10.5px;
+    font-weight: 900;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.final-cta-button:hover {
+    background: #ffdc42;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(255, 210, 28, .24);
+}
+
+.final-cta-button svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.final-cta-illustration {
+    position: absolute;
+    z-index: 2;
+    left: 35px;
+    bottom: 0;
+    width: 265px;
+    height: 128px;
+}
+
+.cta-sun {
+    position: absolute;
+    left: 33px;
+    bottom: 9px;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    background: #ffd21c;
+    opacity: .95;
+}
+
+.cta-sun::before,
+.cta-sun::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 64px;
+    height: 64px;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(255, 210, 28, .5);
+    border-radius: 50%;
+}
+
+.cta-sun::after {
+    width: 78px;
+    height: 78px;
+    border-color: rgba(255, 255, 255, .12);
+}
+
+.cta-step {
+    position: absolute;
+    bottom: 0;
+    transform: skewY(-3deg);
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(
+        to right,
+        #164eac,
+        #286bc8
+    );
+    box-shadow:
+        inset 0 2px 0 rgba(255, 255, 255, .09),
+        0 -4px 12px rgba(0, 0, 0, .05);
+}
+
+.cta-step-1 {
+    left: 72px;
+    width: 54px;
+    height: 30px;
+}
+
+.cta-step-2 {
+    left: 102px;
+    width: 61px;
+    height: 46px;
+}
+
+.cta-step-3 {
+    left: 135px;
+    width: 67px;
+    height: 63px;
+}
+
+.cta-step-4 {
+    left: 170px;
+    width: 72px;
+    height: 80px;
+}
+
+.cta-step::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(8, 54, 128, .42);
+}
+
+.cta-flag-pole {
+    position: absolute;
+    left: 218px;
+    bottom: 76px;
+    width: 2px;
+    height: 43px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, .85);
+    transform: rotate(3deg);
+    transform-origin: bottom;
+}
+
+.cta-flag {
+    position: absolute;
+    left: 219px;
+    bottom: 109px;
+    width: 25px;
+    height: 16px;
+    background: #ffd21c;
+    clip-path: polygon(0 0, 100% 18%, 76% 50%, 100% 82%, 0 100%);
+    transform: rotate(3deg);
+}
+
+.cta-cloud {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .78);
+}
+
+.cta-cloud-1 {
+    left: 6px;
+    top: 39px;
+    width: 25px;
+    height: 11px;
+}
+
+.cta-cloud-1::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    bottom: 3px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.cta-cloud-2 {
+    left: 37px;
+    top: 25px;
+    width: 31px;
+    height: 12px;
+}
+
+.cta-cloud-2::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    bottom: 3px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.cta-star {
+    position: absolute;
+    color: #ffd21c;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.cta-star-1 {
+    left: 9px;
+    top: 67px;
+}
+
+.cta-star-2 {
+    left: 59px;
+    top: 10px;
+    font-size: 9px;
+}
+
+@media (max-width: 850px) {
+    .final-cta-content {
+        width: 63%;
+        padding-right: 28px;
+    }
+
+    .final-cta-illustration {
+        left: 18px;
+        transform: scale(.88);
+        transform-origin: bottom left;
+    }
+}
+
+@media (max-width: 650px) {
+    .final-cta-section {
+        padding: 0 0 30px;
+    }
+
+    .final-cta {
+        height: 158px;
+        border-radius: 16px;
+    }
+
+    .final-cta-content {
+        width: 62%;
+        height: 100%;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 12px 20px 12px 10px;
+    }
+
+    .final-cta-title {
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .final-cta-text {
+        max-width: 100%;
+        margin-bottom: 10px;
+        font-size: 9.5px;
+        line-height: 1.75;
+    }
+
+    .final-cta-button {
+        min-width: 112px;
+        height: 34px;
+        padding: 0 15px;
+        border-radius: 11px;
+        font-size: 10.5px;
+        box-shadow: 0 6px 16px rgba(255, 210, 28, .18);
+    }
+
+    .final-cta-button svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .final-cta-illustration {
+        left: 0;
+        bottom: -1px;
+        width: 265px;
+        height: 128px;
+        transform: scale(.78);
+        transform-origin: bottom left;
+    }
+}
+
+@media (max-width: 430px) {
+    .final-cta {
+        height: 154px;
+    }
+
+    .final-cta-content {
+        width: 64%;
+        padding-right: 16px;
+    }
+
+    .final-cta-title {
+        font-size: 18px;
+    }
+
+    .final-cta-text {
+        font-size: 9px;
+    }
+
+    .final-cta-button {
+        min-width: 108px;
+        height: 33px;
+        font-size: 10px;
+    }
+
+    .final-cta-illustration {
+        left: -8px;
+        transform: scale(.70);
+    }
+}
+</style>
+
+<section class="final-cta-section" id="final-cta">
+    <div class="container">
+
+        <div class="final-cta">
+
+            <div class="final-cta-content">
+
+                <h2 class="final-cta-title">
+                    آینده‌ات را با <span>پایه</span> بساز
+                </h2>
+
+                <p class="final-cta-text" style="font-size: 1.2rem;">
+                    امروز قدم اول را بردار، ما در کنارت هستیم.
+                </p>
+
+                <a href="#consultation" class="final-cta-button">
+                    شروع کن
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 6l-6 6 6 6"></path>
+                    </svg>
+                </a>
+
+            </div>
+
+            <div class="final-cta-illustration">
+
+                <div class="cta-cloud cta-cloud-1"></div>
+                <div class="cta-cloud cta-cloud-2"></div>
+
+                <div class="cta-star cta-star-1">✦</div>
+                <div class="cta-star cta-star-2">✦</div>
+
+                <div class="cta-sun"></div>
+
+                <div class="cta-step cta-step-1"></div>
+                <div class="cta-step cta-step-2"></div>
+                <div class="cta-step cta-step-3"></div>
+                <div class="cta-step cta-step-4"></div>
+
+                <div class="cta-flag-pole"></div>
+                <div class="cta-flag"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
