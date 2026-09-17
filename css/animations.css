@@ -1,0 +1,106 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.payeh-reveal {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+    transition:
+        opacity .72s ease,
+        transform .72s cubic-bezier(.2,.65,.3,1);
+    will-change: opacity, transform;
+}
+
+.payeh-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.payeh-reveal.is-visible .service-card,
+.payeh-reveal.is-visible .why-feature,
+.payeh-reveal.is-visible .magazine-card,
+.payeh-reveal.is-visible .advantage-item,
+.payeh-reveal.is-visible .service-bar-item {
+    animation: payeh-card-reveal .62s cubic-bezier(.2,.65,.3,1) both;
+}
+
+.payeh-reveal.is-visible .service-card:nth-child(2),
+.payeh-reveal.is-visible .why-feature:nth-child(2),
+.payeh-reveal.is-visible .magazine-card:nth-child(2),
+.payeh-reveal.is-visible .advantage-item:nth-child(2),
+.payeh-reveal.is-visible .service-bar-item:nth-child(2) {
+    animation-delay: .08s;
+}
+
+.payeh-reveal.is-visible .service-card:nth-child(3),
+.payeh-reveal.is-visible .why-feature:nth-child(3),
+.payeh-reveal.is-visible .magazine-card:nth-child(3),
+.payeh-reveal.is-visible .advantage-item:nth-child(3),
+.payeh-reveal.is-visible .service-bar-item:nth-child(3) {
+    animation-delay: .16s;
+}
+
+.payeh-reveal.is-visible .service-card:nth-child(4),
+.payeh-reveal.is-visible .why-feature:nth-child(4),
+.payeh-reveal.is-visible .magazine-card:nth-child(4),
+.payeh-reveal.is-visible .advantage-item:nth-child(4),
+.payeh-reveal.is-visible .service-bar-item:nth-child(4) {
+    animation-delay: .24s;
+}
+
+@keyframes payeh-card-reveal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 18px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .payeh-reveal,
+    .payeh-reveal.is-visible,
+    .payeh-reveal.is-visible .service-card,
+    .payeh-reveal.is-visible .why-feature,
+    .payeh-reveal.is-visible .magazine-card,
+    .payeh-reveal.is-visible .advantage-item,
+    .payeh-reveal.is-visible .service-bar-item {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+#payeh-page > [data-component] {
+    min-width: 0;
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: calc(100% - 20px);
+    }
+}
