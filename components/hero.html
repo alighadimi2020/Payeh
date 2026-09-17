@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero | Payeh</title>
+
+<style>
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+background:#fff;
+color:#172033;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+.payeh-hero{
+width:min(1180px,calc(100% - 40px));
+min-height:560px;
+margin:0 auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:25px;
+overflow:hidden;
+}
+
+.payeh-hero-content{
+order:1;
+padding:10px 10px 20px 0;
+opacity:0;
+transform:translateY(18px);
+transition:
+opacity .7s ease,
+transform .7s ease;
+}
+
+.payeh-hero.is-visible .payeh-hero-content{
+opacity:1;
+transform:translateY(0);
+}
+
+.payeh-hero-title{
+margin:0;
+font-size:clamp(42px,5vw,68px);
+line-height:1.25;
+font-weight:900;
+letter-spacing:-1.8px;
+color:#172033;
+}
+
+.payeh-hero-title .blue{
+color:#2374d8;
+}
+
+.payeh-hero-title .yellow{
+color:#f3b51b;
+}
+
+.payeh-hero-description{
+max-width:540px;
+margin:20px 0 0;
+color:#687286;
+font-size:17px;
+line-height:2.1;
+}
+
+.payeh-hero-actions{
+display:flex;
+align-items:center;
+gap:13px;
+flex-wrap:wrap;
+margin-top:27px;
+}
+
+.payeh-hero-button{
+min-width:145px;
+height:52px;
+padding:0 24px;
+border-radius:14px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:15px;
+font-weight:700;
+transition:
+transform .25s ease,
+box-shadow .25s ease;
+}
+
+.payeh-hero-button.primary{
+background:#2374d8;
+color:#fff;
+box-shadow:0 12px 28px rgba(35,116,216,.18);
+}
+
+.payeh-hero-button.secondary{
+background:#fff;
+color:#2374d8;
+border:1px solid #dce7f5;
+}
+
+.payeh-hero-button:hover{
+transform:translateY(-3px);
+}
+
+.payeh-hero-button.primary:hover{
+box-shadow:0 16px 32px rgba(35,116,216,.25);
+}
+
+.payeh-hero-visual{
+order:2;
+min-height:500px;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:5px 10px;
+opacity:0;
+transform:translateY(18px);
+transition:
+opacity .8s ease .1s,
+transform .8s ease .1s;
+}
+
+.payeh-hero.is-visible .payeh-hero-visual{
+opacity:1;
+transform:translateY(0);
+}
+
+.payeh-hero-image{
+    display:block;
+    width:min(100%,560px);
+    height:auto;
+    object-fit:contain;
+    animation:payehFloat 3.8s ease-in-out infinite;
+}
+
+@keyframes payehFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+}
+
+@media(max-width:900px){
+
+.payeh-hero{
+width:min(100% - 28px,680px);
+min-height:auto;
+grid-template-columns:1fr;
+gap:0;
+margin:0 auto;
+}
+
+.payeh-hero-visual{
+order:1;
+min-height:0;
+padding:0 5px 8px;
+}
+
+.payeh-hero-content{
+order:2;
+text-align:center;
+padding:4px 0 18px;
+}
+
+.payeh-hero-description{
+margin:17px auto 0;
+}
+
+.payeh-hero-actions{
+justify-content:center;
+margin-top:22px;
+}
+
+.payeh-hero-image{
+width:min(100%,500px);
+}
+
+}
+
+@media(max-width:600px){
+
+.payeh-hero{
+width:calc(100% - 20px);
+}
+
+.payeh-hero-visual{
+padding:0 0 5px;
+}
+
+.payeh-hero-content{
+padding:2px 0 14px;
+}
+
+.payeh-hero-title{
+font-size:clamp(37px,12vw,50px);
+letter-spacing:-1px;
+}
+
+.payeh-hero-description{
+margin-top:15px;
+font-size:14px;
+line-height:2;
+}
+
+.payeh-hero-actions{
+margin-top:20px;
+gap:9px;
+}
+
+.payeh-hero-button{
+width:100%;
+height:50px;
+}
+
+.payeh-hero-image{
+    width:100%;
+    animation-duration:3.5s;
+}
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+html{
+scroll-behavior:auto;
+}
+
+.payeh-hero-content,
+.payeh-hero-visual{
+opacity:1;
+transform:none;
+transition:none;
+}
+
+.payeh-hero-image{
+animation:none;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<section class="payeh-hero" id="payehHero">
+
+<div class="payeh-hero-content">
+
+<h1 class="payeh-hero-title">
+<span class="blue">از پایه</span>
+<br>
+<span class="yellow">شروع کن</span>
+</h1>
+
+<p class="payeh-hero-description">
+با پایه مسیر، هدف و توانایی هات رو بشناس
+</p>
+
+<div class="payeh-hero-actions">
+
+<a href="#consultation" class="payeh-hero-button primary">
+مشاوره رایگان
+</a>
+
+<a href="#services" class="payeh-hero-button secondary">
+مشاهده خدمات
+</a>
+
+</div>
+
+</div>
+
+<div class="payeh-hero-visual">
+
+<img
+class="payeh-hero-image"
+src="/home/ali/Desktop/Payeh/modular/assets/images/hero.webp"
+alt="تصویر آکادمی مشاوره تحصیلی پایه"
+>
+
+</div>
+
+</section>
+
+<script>
+const payehHero=document.getElementById("payehHero");
+
+if("IntersectionObserver" in window){
+
+const observer=new IntersectionObserver(
+entries=>{
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+payehHero.classList.add("is-visible");
+observer.unobserve(payehHero);
+
+}
+
+});
+},
+{
+threshold:.08
+}
+);
+
+observer.observe(payehHero);
+
+}else{
+
+payehHero.classList.add("is-visible");
+
+}
+</script>
+
+</body>
+</html>

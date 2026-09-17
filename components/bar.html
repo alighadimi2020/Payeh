@@ -1,0 +1,259 @@
+<style>
+.advantages-section {
+    width: 100%;
+    padding: 0 0 34px;
+    overflow: hidden;
+}
+
+.advantages-box {
+    width: 100%;
+    min-height: 92px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    background: #fff9e8;
+    border-radius: 18px;
+    padding: 14px 22px;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+.advantage-item {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 8px 18px;
+    text-align: right;
+    direction: rtl;
+    position: relative;
+}
+
+.advantage-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 1px;
+    height: 50px;
+    background: #eadfbd;
+}
+
+.advantage-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e3a900;
+}
+
+.advantage-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.advantage-content {
+    min-width: 0;
+}
+
+.advantage-content h3 {
+    margin: 0 0 4px;
+    color: #164578;
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1.7;
+}
+
+.advantage-content p {
+    margin: 0;
+    color: #7a8490;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+@media (max-width: 950px) {
+    .advantages-box {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px 0;
+    }
+
+    .advantage-item:nth-child(2)::after {
+        display: none;
+    }
+
+    .advantage-item:nth-child(3)::after,
+    .advantage-item:nth-child(4)::after {
+        top: 8px;
+        height: 50px;
+    }
+
+    .advantage-item {
+        min-height: 62px;
+    }
+}
+
+@media (max-width: 650px) {
+    .advantages-section {
+        padding-bottom: 28px;
+    }
+
+    .advantages-box {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 12px 8px;
+        border-radius: 16px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x proximity;
+    }
+
+    .advantages-box::-webkit-scrollbar {
+        display: none;
+    }
+
+    .advantage-item {
+        flex: 0 0 220px;
+        width: 220px;
+        min-height: 68px;
+        padding: 8px 17px;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        scroll-snap-align: start;
+    }
+
+    .advantage-item:not(:last-child)::after {
+        display: block;
+        top: 9px;
+        left: 0;
+        height: 50px;
+    }
+
+    .advantage-icon {
+        width: 39px;
+        height: 39px;
+        flex-basis: 39px;
+    }
+
+    .advantage-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .advantage-content h3 {
+        font-size: 12px;
+    }
+
+    .advantage-content p {
+        font-size: 9.5px;
+    }
+}
+
+@media (max-width: 390px) {
+    .advantage-item {
+        flex-basis: 205px;
+        width: 205px;
+    }
+}
+</style>
+
+<section class="advantages-section" id="advantages">
+    <div class="container">
+
+        <div class="advantages-box">
+
+            <div class="advantage-item">
+
+                <div class="advantage-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+                </div>
+
+                <div class="advantage-content">
+                    <h3>
+                        مشاوران متخصص
+                    </h3>
+
+                    <p>
+                        تجربه و دانش تخصصی در کنار شما
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="advantage-item">
+
+                <div class="advantage-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headset"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg>
+                </div>
+
+                <div class="advantage-content">
+                    <h3>
+                        پشتیبانی مستمر
+                    </h3>
+
+                    <p>
+                        در تمام مراحل مسیر همراه شما هستیم
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="advantage-item">
+
+                <div class="advantage-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3v18"></path>
+                        <path d="M5 7h14"></path>
+                        <path d="M6 7l-3 6h6z"></path>
+                        <path d="M18 7l-3 6h6z"></path>
+                        <path d="M8 21h8"></path>
+                    </svg>
+                </div>
+
+                <div class="advantage-content">
+                    <h3>
+                        مسیر اختصاصی
+                    </h3>
+
+                    <p>
+                        متناسب با شرایط و اهداف شما
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="advantage-item">
+
+                <div class="advantage-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-group"><path d="M17 21v-1a2 2 0 00-2-2H9a2 2 0 00-2 2v1"/><path d="M19 10h1a2 2 0 012 2v1"/><path d="M5 10H4a2 2 0 00-2 2v1"/><circle cx="12" cy="11" r="3"/><circle cx="18" cy="4" r="2"/><circle cx="6" cy="4" r="2"/></svg>
+                </div>
+
+                <div class="advantage-content">
+                    <h3>
+                        رضایت دانش‌آموزان
+                    </h3>
+
+                    <p>
+                        با هزاران تجربه موفق همراه بوده‌ایم
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
