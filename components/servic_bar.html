@@ -1,10 +1,9 @@
 <style>
 .service-bar-section {
     width: 100%;
-    padding: 8px 0 18px;
+    padding: 0;
 }
 
-/* برای اینکه گوشه‌های گرد دیده بشن، یک فاصله کوچیک از کناره‌ها */
 .service-bar-section .service-bar {
     margin: 0 10px;
 }
@@ -22,20 +21,27 @@
 
 .service-bar-marquee {
     width: 100%;
-    display: flex;
-    align-items: stretch;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
 }
 
 .service-bar-track {
-    width: 100%;
+    width: max-content;
+    max-width: none;
     display: flex;
     align-items: stretch;
-    direction: rtl;
+    direction: ltr;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
 }
 
 .service-bar-item {
     position: relative;
-    flex: 1 1 0;
+    direction: rtl;
+    flex: 0 0 auto;
     min-width: 0;
     min-height: 60px;
     display: flex;
@@ -48,93 +54,54 @@
     transition: color .25s ease;
 }
 
-.service-bar-item:not(:last-child)::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 15px;
-    width: 1px;
-    height: 30px;
-    background: #dce8f5;
-}
-
-.service-bar-item::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 0;
-    height: 2px;
-    background: #0b3d91;
-    border-radius: 2px 2px 0 0;
-    transition: width .3s ease;
-}
-
 .service-bar-item:hover {
-    color: #0b3d91;
-}
-
-.service-bar-item:hover::after {
-    width: 55%;
+    color: #0a66c2;
 }
 
 .service-bar-icon {
-    width: 26px;
-    height: 26px;
-    flex: 0 0 26px;
-    display: flex;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #123d73;
 }
 
 .service-bar-icon svg {
-    width: 22px;
-    height: 22px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 .service-bar-label {
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.6;
     white-space: nowrap;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 .service-bar-track--clone {
-    display: none;
+    display: none !important;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 701px) {
+    .service-bar-track {
+        width: 100%;
+        max-width: none;
+        transform: translate3d(0, 0, 0) !important;
+        animation: none !important;
+    }
+
     .service-bar-item {
-        padding-inline: 12px;
-        gap: 8px;
-    }
-
-    .service-bar-label {
-        font-size: 12.5px;
-    }
-
-    .service-bar-icon {
-        width: 24px;
-        height: 24px;
-        flex-basis: 24px;
-    }
-
-    .service-bar-icon svg {
-        width: 20px;
-        height: 20px;
+        flex: 1 1 0;
+        min-width: 0;
     }
 }
 
 @media (max-width: 700px) {
     .service-bar-section {
-        padding: 6px 0 16px;
+        width: 100%;
+        padding: 0;
     }
 
     .service-bar-section .service-bar {
@@ -142,55 +109,59 @@
     }
 
     .service-bar {
+        width: auto;
         min-height: 54px;
         border-radius: 15px;
+        overflow: hidden;
     }
 
     .service-bar-marquee {
-        width: max-content;
-        display: flex;
-        align-items: stretch;
-        flex: 0 0 auto;
-        animation: serviceBarMarquee 17s linear infinite;
-        will-change: transform;
-        transform: translate3d(0, 0, 0);
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
     }
 
     .service-bar-track {
         width: max-content;
+        max-width: none;
         flex: 0 0 auto;
-        direction: rtl;
-    }
-
-    .service-bar-track--clone {
-        display: flex;
+        direction: ltr;
+        will-change: transform;
+        animation-name: serviceBarBounce;
+        animation-duration: var(--service-bar-duration, 12s);
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-play-state: running;
     }
 
     .service-bar-item {
         flex: 0 0 150px;
         width: 150px;
+        min-width: 150px;
         min-height: 54px;
         padding: 8px 14px;
         justify-content: center;
         direction: rtl;
     }
 
-    .service-bar-item:not(:last-child)::before {
-        top: 12px;
-        height: 30px;
+    .service-bar-label {
+        font-size: 13px;
     }
 
-    .service-bar-marquee:hover,
-    .service-bar-marquee:focus-within {
-        animation-play-state: running;
-    }
-
-    @keyframes serviceBarMarquee {
+    @keyframes serviceBarBounce {
         from {
             transform: translate3d(0, 0, 0);
         }
+
         to {
-            transform: translate3d(-50%, 0, 0);
+            transform: translate3d(
+                calc(-1 * var(--service-bar-distance, 0px)),
+                0,
+                0
+            );
         }
     }
 }
@@ -199,108 +170,79 @@
     .service-bar-item {
         flex-basis: 140px;
         width: 140px;
+        min-width: 140px;
     }
 
     .service-bar-label {
         font-size: 12px;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .service-bar-track {
+        animation: none !important;
+        transform: translate3d(0, 0, 0) !important;
+    }
+}
 </style>
 
-<section class="service-bar-section" aria-label="خدمات پایه">
+<section class="service-bar-section">
     <div class="service-bar">
-
         <div class="service-bar-marquee">
-
             <div class="service-bar-track">
-                <a class="service-bar-item" href="#consultation">
-                    <span class="service-bar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-pen"><path d="M11.5 15H7a4 4 0 0 0-4 4v2"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="7" r="4"/></svg>
-                    </span>
+
+                <a href="#" class="service-bar-item">
                     <span class="service-bar-label">مشاوره تخصصی</span>
-                </a>
-                <a class="service-bar-item" href="#education">
                     <span class="service-bar-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3.5" y="4" width="17" height="16" rx="2"></rect>
-                            <path d="M8 2.5v3"></path>
-                            <path d="M16 2.5v3"></path>
-                            <path d="M3.5 9h17"></path>
-                            <path d="M8 13h2"></path>
-                            <path d="M8 16.5h5"></path>
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3C7.03 3 3 6.58 3 11c0 2.28 1.1 4.34 2.9 5.75L5 21l4.3-2.25c.85.16 1.75.25 2.7.25 4.97 0 9-3.58 9-8s-4.03-8-9-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.5 11.5h7M8.5 8.5h4M8.5 14.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                         </svg>
                     </span>
+                </a>
+
+                <a href="#" class="service-bar-item">
                     <span class="service-bar-label">برنامه‌ریزی تحصیلی</span>
-                </a>
-                <a class="service-bar-item" href="#services">
                     <span class="service-bar-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5Z"></path>
-                            <path d="M6.5 10v5.2c0 1.6 2.4 3 5.5 3s5.5-1.4 5.5-3V10"></path>
-                            <path d="M21 8v6"></path>
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M5 4.5h14v15H5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                         </svg>
                     </span>
+                </a>
+
+                <a href="#" class="service-bar-item">
                     <span class="service-bar-label">انتخاب رشته</span>
-                </a>
-                <a class="service-bar-item" href="#education">
                     <span class="service-bar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text"><path d="M12 5v16"/><path d="M16 13h2"/><path d="M16 9h2"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/><path d="M6 13h2"/><path d="M6 9h2"/></svg>
-
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="m8 12 2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </span>
+                </a>
+
+                <a href="#" class="service-bar-item">
                     <span class="service-bar-label">آموزش هدفمند</span>
-                </a>
-                <a class="service-bar-item" href="#consultation">
                     <span class="service-bar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-podium"><path d="M12 6V2h-1"/><path d="M9 15a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1"/><path d="M9 21V11a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10"/></svg>                    </span>
-                    <span class="service-bar-label">همراهی تا موفقیت</span>
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 8.5 12 4l9 4.5L12 13 3 8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M6 10v5.5c1.7 1.5 3.7 2.25 6 2.25s4.3-.75 6-2.25V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M21 9v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </span>
                 </a>
-            </div>
 
-            <div class="service-bar-track service-bar-track--clone" aria-hidden="true">
-                <a class="service-bar-item" href="#consultation" tabindex="-1">
-                    <span class="service-bar-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="8" r="3.5"></circle>
-                            <path d="M5 20c.7-3.3 3.1-5.2 7-5.2s6.3 1.9 7 5.2"></path>
-                        </svg>
-                    </span>
-                    <span class="service-bar-label">مشاوره تخصصی</span>
-                </a>
-                <a class="service-bar-item" href="#education" tabindex="-1">
-                    <span class="service-bar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-pen"><path d="M11.5 15H7a4 4 0 0 0-4 4v2"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="7" r="4"/></svg>
-                    </span>
-                    <span class="service-bar-label">برنامه‌ریزی تحصیلی</span>
-                </a>
-                <a class="service-bar-item" href="#services" tabindex="-1">
-                    <span class="service-bar-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5Z"></path>
-                            <path d="M6.5 10v5.2c0 1.6 2.4 3 5.5 3s5.5-1.4 5.5-3V10"></path>
-                            <path d="M21 8v6"></path>
-                        </svg>
-                    </span>
-                    <span class="service-bar-label">انتخاب رشته</span>
-                </a>
-                <a class="service-bar-item" href="#education" tabindex="-1">
-                    <span class="service-bar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text"><path d="M12 5v16"/><path d="M16 13h2"/><path d="M16 9h2"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/><path d="M6 13h2"/><path d="M6 9h2"/></svg>
-                    </span>
-                    <span class="service-bar-label">آموزش هدفمند</span>
-                </a>
-                <a class="service-bar-item" href="#consultation" tabindex="-1">
-                    <span class="service-bar-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 3.5 13.8 8l4.7.4-3.6 3 1.1 4.6-4-2.5-4 2.5 1.1-4.6-3.6-3L10.2 8 12 3.5Z"></path>
-                            <path d="M18.5 17.5 20 20"></path>
-                            <path d="M5.5 17.5 4 20"></path>
-                        </svg>
-                    </span>
+                <a href="#" class="service-bar-item">
                     <span class="service-bar-label">همراهی تا موفقیت</span>
+                    <span class="service-bar-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s-7-4.35-7-10.25A4.75 4.75 0 0 1 9.75 6c1.1 0 2.15.4 2.25 1.2C12.1 6.4 13.15 6 14.25 6A4.75 4.75 0 0 1 19 10.75C19 16.65 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
                 </a>
-            </div>
 
+            </div>
         </div>
-
     </div>
 </section>
+
